@@ -1,0 +1,19 @@
+<form>
+  <label>Index by Field</label>
+  <row>
+    <panel>
+      <table>
+        <search>
+          <query>
+            <![CDATA[index=* | stats count by index, sourcetype, severity]]>
+          </query>
+        </search>
+        <option name="count">10</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">row</option>
+        <option name="rowNumbers">false</option>
+        <option name="wrap">true</option>
+      </table>
+    </panel>
+  </row>
+</form>

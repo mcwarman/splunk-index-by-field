@@ -1,0 +1,16 @@
+# Splunk App: http://localhost:8000/
+
+version: '2'
+services:
+  splunk:
+    hostname: splunk
+    image: splunk/splunk:6.6.0
+    environment:
+      SPLUNK_START_ARGS: --accept-license
+      SPLUNK_CMD_1: "add user user1 -password password -role index1_all -auth admin:changeme"
+      SPLUNK_CMD_2: "add user user2 -password password -role index1_warn -auth admin:changeme"
+    volumes:
+      - ./data:/data
+      - ./app:/opt/splunk/etc/apps/index-by-field
+    ports:
+      - "8000:8000"
